@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = [
+    "client",
+    "server",
+    "shared",
+]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["Sojty"]
+edition = "2021"
+publish = false
+
+[profile.release]
+lto = true
+opt-level = 's'

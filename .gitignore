@@ -1,0 +1,28 @@
+# Environment
+.env
+.env.local
+.env*.local
+
+# Rust build artifacts
+/target/
+/debug/
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.iml
+
+# WebAssembly/Trunk
+/dist/
+/pkg/
+
+# OS specific
+.Thumbs.db
