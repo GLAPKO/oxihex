@@ -1,0 +1,45 @@
+name: Rust CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1. Install Linux dependencies needed by Bevy (required for building the client)
+      - name: Install Bevy dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ pkg-config libx11-dev libasound2-dev libudev-dev libwayland-dev libxkbcommon-dev
+
+      # 2. Set up Rust toolchain and add the WASM target
+      - name: Setup Rust
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup target add wasm32-unknown-unknown
+
+      # 3. Cache Rust build artifacts for faster workflow runs
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      # 4. Build the entire workspace (server, client, shared)
+      - name: Build workspace
+        run: cargo build --workspace --verbose
+
+      # 5. Verify the client can compile for WebAssembly
+      - name: Check WASM Client
+        run: cargo check -p client --target wasm32-unknown-unknown
+
+      # 6. Run workspace tests
+      - name: Run workspace tests
+        run: cargo test --workspace --verbose
