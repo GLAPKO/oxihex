@@ -3,7 +3,7 @@ resolver = "2"
 members = [
     "client",
     "server",
-    "shared",
+    "common",
 ]
 
 [workspace.package]

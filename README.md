@@ -4,7 +4,7 @@ Oxihex is a modern evolution of minimalist hex-based strategy games. It aims to 
 
 ## 🛠 Tech Stack
 - **Engine:** [Bevy](https://bevyengine.org/) (Targeting WebAssembly & Desktop)
-- **Backend:** [Axum](https://github.com/tokio-rs/axum) (High-performance asynchronous Rust)
+- **Backend:** [Axum](https://github.com/tokio-rs/axum) (High-performance asynchronous Rust) //TODO
 - **Networking:** WebSockets with [Bincode](https://github.com/bincode-org/bincode) for ultra-low overhead binary serialization.
 - **Shared Logic:** Isomorphic Rust crate for shared game state and protocols.
 
