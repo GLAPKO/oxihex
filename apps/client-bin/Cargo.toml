@@ -1,0 +1,9 @@
+[package]
+name = "client-bin"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+bevy = "0.18.1"

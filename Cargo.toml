@@ -1,15 +1,11 @@
 [workspace]
 resolver = "2"
-members = [
-    "client",
-    "server",
-    "common",
-]
+members = ["apps/client-bin", "apps/server-cli","crates/client","crates/domain", "crates/net", "crates/server", "crates/sim", "crates/storage", "crates/worldgen"]
 
 [workspace.package]
 version = "0.1.0"
 authors = ["Sojty"]
-edition = "2021"
+edition = "2024"
 publish = false
 
 [profile.release]
