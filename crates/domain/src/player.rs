@@ -13,7 +13,6 @@ pub enum PlayerIdError {
 }
 
 impl PlayerId {
-    #[must_use]
     pub fn get(self) -> u8 {
         self.0.get()
     }
