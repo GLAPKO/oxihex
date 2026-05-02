@@ -1,25 +1,16 @@
 use serde::{Deserialize, Serialize};
-use std::{fmt, num::NonZeroU8};
+use std::num::NonZeroU8;
 
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(transparent)]
 pub struct PlayerId(NonZeroU8);
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Debug, thiserror::Error, PartialEq, Eq)]
 pub enum PlayerIdError {
+    #[error("player id must be non-zero")]
     Zero,
 }
-
-impl fmt::Display for PlayerIdError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            PlayerIdError::Zero => f.write_str("player id must be non-zero"),
-        }
-    }
-}
-
-impl std::error::Error for PlayerIdError {}
 
 impl PlayerId {
     #[must_use]
