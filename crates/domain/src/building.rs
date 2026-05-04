@@ -1,9 +1,7 @@
-use serde::{Deserialize, Serialize};
 use std::num::NonZeroU64;
 
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
-#[serde(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub struct BuildingId(NonZeroU64);
 
 #[derive(Debug, thiserror::Error, PartialEq, Eq)]
@@ -35,7 +33,7 @@ impl TryFrom<u64> for BuildingId {
     }
 }
 
-#[derive(Clone, Serialize, Deserialize)]
+#[derive(Clone)]
 pub struct Building {
     pub id: BuildingId,
 }

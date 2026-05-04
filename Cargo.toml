@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["apps/client-bin", "apps/server-cli","crates/client","crates/domain", "crates/net", "crates/server", "crates/sim", "crates/storage", "crates/worldgen"]
+members = ["apps/client-bin", "apps/server-cli","crates/client","crates/domain", "crates/adapters/network", "crates/protocol", "crates/server", "crates/sim", "crates/adapters/storage", "crates/worldgen"]
 
 [workspace.package]
 version = "0.1.0"

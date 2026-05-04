@@ -1,9 +1,8 @@
-use serde::{Deserialize, Serialize};
+
 use std::num::NonZeroU8;
 
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
-#[serde(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub struct PlayerId(NonZeroU8);
 
 #[derive(Debug, thiserror::Error, PartialEq, Eq)]
@@ -46,7 +45,7 @@ impl TryFrom<u8> for PlayerId {
 //     }
 // }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug)]
 pub struct Player {
     id: PlayerId,
     nick: String,
